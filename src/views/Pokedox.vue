@@ -1,5 +1,5 @@
 <script>
-import PokemonList from "../components/PokemonList/PokemonList.vue";
+import PokemonList from "../components/AboutPokemon/PokemonList.vue";
 import TheHeader from "../components/UI/TheHeader.vue";
 export default {
   components: { TheHeader, PokemonList },
