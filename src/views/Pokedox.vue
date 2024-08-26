@@ -6,9 +6,14 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="grid-container">
     <TheHeader />
     <PokemonList />
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+/* .grid-container{
+  display: grid;
+  grid-template-columns: auto auto;
+} */
+</style>
