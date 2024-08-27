@@ -56,11 +56,16 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="card-container">
     <div>
-      <img :src="gifPokemon" alt="" srcset="" />
-      <div>
-        <p>{{ data?.id }}</p>
+      <img
+        :src="data?.sprites.other.home.front_default"
+        alt=""
+        srcset=""
+        class="img-fluid pokemon-image"
+      />
+      <div class="text-center">
+        <p class="pokemon-id">#{{ data?.id }}</p>
         <p>{{ data?.gender }}</p>
       </div>
     </div>
@@ -69,7 +74,7 @@ export default {
         <p>{{ data?.name }}</p>
       </div>
       <div>
-        <p v-for="type in data?.types">{{ type }}</p>
+        <p v-for="(type, idx) in data?.types" :key="idx">{{ type }}</p>
       </div>
       <div>
         <p>Pokedex Entery</p>
@@ -80,7 +85,9 @@ export default {
       <div>
         <p>Abilities</p>
         <div>
-          <p v-for="ability in data?.abilities">{{ ability }}</p>
+          <p v-for="(ability, idx) in data?.abilities" :key="idx">
+            {{ ability }}
+          </p>
         </div>
       </div>
       <div>
@@ -96,7 +103,9 @@ export default {
       <div>
         <div>
           <p>Weakness</p>
-          <p v-for="weakness in data?.weaknesses">{{ weakness }}</p>
+          <p v-for="(weakness, idx) in data?.weaknesses" :key="idx">
+            {{ weakness }}
+          </p>
         </div>
         <div>
           <p>Base Exp</p>
@@ -105,7 +114,7 @@ export default {
         <div>
           <p>Stats</p>
           <div>
-            <div v-for="(stat, value) in data?.stats">
+            <div v-for="(stat, value, idx) in data?.stats" :key="idx">
               <p>{{ stat }}</p>
               <p>{{ value }}</p>
             </div>
@@ -137,4 +146,21 @@ export default {
     </div>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+.card-container {
+  padding: 10rem 1rem 1rem 1rem;
+  background: #fff;
+  margin-left: 2rem;
+  border-radius: 2rem;
+  position: relative;
+}
+.pokemon-image {
+  position: absolute;
+  top: -18rem;
+  left: 0;
+}
+.pokemon-id{
+  color: #959595;
+  font-size: 1.25rem;
+}
+</style>
