@@ -23,7 +23,7 @@ export default {
 <template>
   <div
     :key="listItem?.id"
-    class="pokemon-card"
+    class="pokemon-card col-md-3 mr-2 mb-2 text-center"
     @click="selectedPokemonInfo(listItem?.id)"
   >
     <img
@@ -44,9 +44,10 @@ export default {
 <style scoped>
 .pokemon-card {
   background-color: #fff;
-  border-radius: 3rem;
+  border-radius: 2rem;
   box-shadow: 8px 8px 4px #d1d1d1;
   padding: 1.25rem;
+  max-height: 357px;
 }
 .pokemon-card p {
   font-size: 1.5rem;

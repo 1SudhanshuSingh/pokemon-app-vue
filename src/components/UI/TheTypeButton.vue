@@ -1,5 +1,6 @@
 <script>
-import pokemonTypeColors from "@/constants/pokemonTypeColor";
+import TypeIcons from "@/constants/typeSvg";
+
 export default {
   props: {
     pokemonType: {
@@ -7,29 +8,49 @@ export default {
       required: true,
     },
   },
-  computed: {
-    buttonColor() {
-      return {
-        backgroundColor: pokemonTypeColors[this.pokemonType],
-      };
-    },
+  data() {
+    return {
+      typeIcons: {
+        normal: TypeIcons.normal,
+        fire: TypeIcons.fire,
+        water: TypeIcons.water,
+        electric: TypeIcons.electric,
+        grass: TypeIcons.grass,
+        ice: TypeIcons.ice,
+        fighting: TypeIcons.fighting,
+        poison: TypeIcons.poison,
+        ground: TypeIcons.ground,
+        flying: TypeIcons.flying,
+        psychic: TypeIcons.psychic,
+        bug: TypeIcons.bug,
+        rock: TypeIcons.rock,
+        ghost: TypeIcons.ghost,
+        dragon: TypeIcons.dragon,
+        dark: TypeIcons.dark,
+        steel: TypeIcons.steel,
+        fairy: TypeIcons.fairy,
+      },
+    };
   },
 };
 </script>
 
 <template>
-  <button class="type-button" :style="buttonColor">
-    {{ pokemonType }}
-  </button>
+  <div class="type--icon">
+    <img
+      :class="pokemonType"
+      :src="typeIcons[pokemonType]"
+      :alt="pokemonType"
+      :title="pokemonType"
+    />
+    <p class="type--title">{{ pokemonType }}</p>
+  </div>
 </template>
 
 <style scoped>
-.type-button {
-  border: 0;
-  padding: 0.5rem 1rem;
-  color: #ffffff;
+.type--title {
   text-transform: capitalize;
-  border-radius: 1rem;
-  margin: 0 0.5rem;
+  margin-top: 0;
+  font-size: 0.75rem;
 }
 </style>
